@@ -1,18 +1,30 @@
 <template>
   <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
+
+    <v-toolbar
+        color="blue darken-3"
+        dark
+        app
+        :clipped-left="$vuetify.breakpoint.mdAndUp"
+        fixed
+    >
+    <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
+        <span class="hidden-sm-and-down">NF-E Visual</span>
+    </v-toolbar-title>
+    <v-text-field
         flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
+        solo-inverted
+        prepend-icon="search"
+        label="Search"
+        class="hidden-sm-and-down"
+    ></v-text-field>
+        <v-spacer></v-spacer>
+        <v-btn icon>
+            <v-icon>apps</v-icon>
+        </v-btn>
+        <v-btn icon>
+            <v-icon>notifications</v-icon>
+        </v-btn>
     </v-toolbar>
 
     <v-content>
