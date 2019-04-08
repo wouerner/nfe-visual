@@ -5,7 +5,7 @@ export const notasAction = ({ commit }) => {
     console.log('action')
     api.syncNotas()
         .then((response) => {
-            console.log('200')
+            console.log(response)
             const { data } = response;
             commit(types.SYNC_NOTAS, data)
         }).catch((e) => {

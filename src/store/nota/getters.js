@@ -1,1 +1,1 @@
-export const getDashboard = state => state.dashboard
+export const notasGetter = state => state.notas

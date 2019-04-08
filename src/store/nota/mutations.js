@@ -7,7 +7,7 @@ export const state = {
 
 export const mutations = {
   [types.SYNC_NOTAS] (state, params) {
-      state.notas.push(params)
+      state.notas = params
   },
   [types.INSERT_TRADE] (state, params) {
       state.dashboard.trades.push(params)

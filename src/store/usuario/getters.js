@@ -1,1 +1,1 @@
-export const obterUsuario = state => state.usuario
+export const notasGetter = state => state.notas

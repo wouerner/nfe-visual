@@ -2,16 +2,13 @@
   <v-container>
   <v-data-table
       :headers="headers"
-      :items="data"
+      :items="notasGetter"
       class="elevation-1"
   >
       <template v-slot:items="props">
-          <td>{{ props.item.name }}</td>
-          <td class="text-xs-right">{{ props.item.calories }}</td>
-          <td class="text-xs-right">{{ props.item.fat }}</td>
-          <td class="text-xs-right">{{ props.item.carbs }}</td>
-          <td class="text-xs-right">{{ props.item.protein }}</td>
-          <td class="text-xs-right">{{ props.item.iron }}</td>
+          <td class="">{{ props.item.id }}</td>
+          <td class="">{{ props.item.data }}</td>
+          <td class="">{{ props.item.destinatario }}</td>
       </template>
   </v-data-table>
   </v-container>
@@ -25,7 +22,18 @@
     data(){
         return {
             headers: [
-
+                {
+                  text: 'ID',
+                  value: 'id',
+                },
+                {
+                  text: 'Data',
+                  value: 'data',
+                },
+                {
+                  text: 'Destinatario',
+                  value: 'destinatario',
+                }
             ],
             data: [
 
@@ -33,12 +41,11 @@
         }
     },
     created(){
-       console.log('created')
        this.notasAction()
     },
     computed: {
       ...mapGetters({
-          modalVisible: 'modal/default',
+          notasGetter: 'nota/notasGetter',
       })
     },
     methods: {
