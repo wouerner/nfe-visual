@@ -1,8 +1,64 @@
 <template>
     <div>
+        <v-container grid-list-md text-xs-center>
+
+        <v-subheader>
+            Dados Gerais
+        </v-subheader>
+        <v-layout row wrap>
+            <v-flex >
+                <v-card
+                    :hover="true"
+                    color="amber lighten-4"
+                    flat
+                >
+                    <v-card-text class="px-0 py-0">
+                        <h5>Chave de Acesso:</h5>
+                        <strong>
+                            4219 0110 8326 4400 0108 5500 4000 0456 4919 1688 6995
+                        </strong>
+                    </v-card-text>
+                </v-card>
+            </v-flex>
+            <v-flex >
+                <v-card
+                    flat
+                >
+                    <v-card-text
+                        class="px-0 py-0"
+                    >
+                        <h5>Número:</h5>
+                        <strong>
+                            45649
+                        </strong>
+                    </v-card-text>
+                </v-card>
+            </v-flex>
+            <v-flex >
+                <v-card
+                    flat
+                >
+                    <v-card-text
+                        class="px-0 py-0"
+                    >
+                        <h5>Versão XML</h5>
+                        <strong>
+                            4.00
+                        </strong>
+                    </v-card-text>
+                </v-card>
+            </v-flex>
+        </v-layout>
+        </v-container>
+
     <v-tabs
-            v-model="model"
-        fixed-tabs>
+        v-model="model"
+        fixed-tabs
+        show-arrows
+        color="blue"
+        dark
+    >
+        <v-tabs-slider color="yellow"></v-tabs-slider>
         <v-tab
             v-for="n in tabs"
             :key="n.id"
