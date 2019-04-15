@@ -2,7 +2,8 @@ import * as types from './types'
 import vue from 'vue'
 
 export const state = {
-    notas: []
+    notas: [],
+    nota: {} 
 }
 
 export const mutations = {
@@ -29,5 +30,8 @@ export const mutations = {
   },
   [types.REMOVE_ALL_SESSION] (state) {
     vue.set(state.dashboard, 'sessions', [])
-  }
+  },
+  [types.SYNC_NOTA] (state, params) {
+      state.nota = params
+  },
 }

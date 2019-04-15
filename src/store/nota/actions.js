@@ -13,3 +13,14 @@ export const notasAction = ({ commit }) => {
             // throw new TypeError(e, 'error', 10);
         });
 };
+export const syncNotaAction = ({ commit }) => {
+    api.syncNota()
+        .then((response) => {
+            const { data } = response;
+            commit(types.SYNC_NOTA, data)
+        }).catch((e) => {
+            console.log(e)
+            // throw new TypeError(e, 'error', 10);
+        });
+
+};
