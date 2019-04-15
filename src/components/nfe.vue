@@ -1,6 +1,7 @@
 <template>
-    <v-container>
+    <v-container >
     <v-sheet
+        v-if=" data && typeof data !== 'undefined' && Object.keys(data).length > 0"
         color="grey lighten-3"
     >
     <v-container grid-list-md text-xs-center>
