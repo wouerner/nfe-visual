@@ -1,148 +1,6 @@
 <template>
     <v-container grid-list-md text-xs-center>
         <nFolha :data="dataMod" />
-
-        <v-subheader>
-            Dados do Transporte
-        </v-subheader>
-        <v-layout row wrap>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">Modelo:
-                        Nome / Razão Social
-                        <strong>Growth Supplements</strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">Modelo:
-                        Modalidade do Frete
-                        <strong>
-                            0 - Contratação do Frete por Conta do Remetente
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">Modelo:
-                        Transportador
-                        <strong>
-                            0 - Contratação do Frete por Conta do Remetente
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">Modelo:
-                        Razão Social / Nome
-                        <strong>
-                            EXPRESSO
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">Modelo:
-                        Inscrição Estadual
-                        <strong>
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">
-                        Endereço Completo
-                        <strong>
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">
-                        Município
-                        <strong>
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">
-                        UF
-                        <strong>
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">
-                        UF
-                        <strong>
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-subheader>
-                Volumes
-            </v-subheader>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">
-                        Volume 1
-                        Quantidade
-                        <strong>
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">
-                        Espécie
-                        Volumes
-                        <strong>
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">
-                        Marca dos Volumes
-                        Numeração
-                        <strong>
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">
-                        Peso Líquido
-                        2,260
-                        <strong>
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">
-                        Peso Bruto
-                        2,260
-                        <strong>
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-        </v-layout>
     </v-container>
 </template>
 <script>
@@ -157,7 +15,34 @@
       },
       computed:{
           dataMod(){
-              return []
+              return [
+                  {
+                   title: 'Dados do Transporte',
+                   data: [
+                    {
+                        label: 'Base de Cálculo ICMS',
+                        value: 18861
+                    },
+                       {label: 'Nome / Razão Social Growth Supplements', value: 0 },
+                       {label: 'Modalidade do Frete 0 - Contratação do Frete por Conta do Remetente', value: 0 },
+                       {label: 'Transportador 0 - Contratação do Frete por Conta do Remetente', value: 0 },
+                       {label: 'Razão Social / Nome EXPRESSO', value: 0 },
+                       {label: 'Modelo: Inscrição Estadual', value: 0 },
+                       {label: 'Endereço Completo', value: 0 },
+                       {label: 'Município', value: 0 },
+                       {label: 'UF', value: 0 },
+                   ]
+                  },
+                  {
+                   title: 'Volumes',
+                   data: [
+                       {label: 'Volume 1 Quantidade', value: 0 },
+                       {label: 'Espécie Volumes', value: 0 },
+                       {label: 'Marca dos Volumes Numeração', value: 0 },
+                       {label: 'Peso Líquido 2,260', value: 0 },
+                       {label: 'Peso Bruto 2,260 ', value: 0 }
+                   ]}
+              ]
           }
       }
   }
