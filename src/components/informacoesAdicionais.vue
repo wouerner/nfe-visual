@@ -1,5 +1,6 @@
 <template>
     <v-container grid-list-md text-xs-center>
+        <nFolha :data="dataMod" />
         <v-subheader>Dados Gerais</v-subheader>
         <v-layout row wrap>
             <v-flex >
@@ -31,10 +32,19 @@
     </v-container>
 </template>
 <script>
+  import nFolha from '@/components/nFolha'
   export default {
     name: 'informacoesAdicionais',
       props: {
           data: Object
+      },
+      components:{
+          nFolha: nFolha
+      },
+      computed:{
+          dataMod(){
+              return []
+          }
       }
   }
 </script>

@@ -1,28 +1,15 @@
 <template>
     <v-container>
-        <v-sheet
-            color="grey lighten-3"
-        >
-            <v-container grid-list-md text-xs-center>
-                <template v-for="data in dataMod">
-                    <v-subheader>{{data.title}}</v-subheader>
-                    <v-layout  row wrap>
-                        <v-flex v-for="field in data.data" >
-                            <nCel :label="field.label" :value="field.value" ></nCel>
-                        </v-flex>
-                    </v-layout>
-                </template >
-            </v-container>
-        </v-sheet>
+        <nFolha :data="dataMod" />
     </v-container>
 </template>
 
 <script>
-  import  nCel from '@/components/nCel'
+  import nFolha from '@/components/nFolha'
   export default {
     name: 'emitente',
       components:{
-          nCel: nCel
+          nFolha: nFolha
       },
       props: {
           data: Object

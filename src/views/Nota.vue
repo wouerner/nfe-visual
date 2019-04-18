@@ -94,21 +94,21 @@ import { mapActions, mapGetters } from 'vuex';
 export default {
     name: 'nota',
     components: { nfe },
-      data(){
+    data(){
           return {
               model:'tab-0',
               tabs:[
                   {id: 0, text:'NFe', component: nfe, data:{} },
-                  {id: 1, text:'Emitente', component: emitente, data: this.emitente()},
-                  {id: 2, text:'Destinatario', component: destinatario},
-                  {id: 3, text:'Produtos e Serviços', component: produtosServicos},
-                  {id: 4, text:'Totais ', component: totais},
-                  {id: 5, text:'Transportes', component: transporte},
-                  {id: 6, text:'Cobrança ', component: cobranca},
-                  {id: 7, text:'Informações Adicionais ', component: informacoesAdicionais},
+                  {id: 1, text:'Emitente', component: emitente, data: {} },
+                  {id: 2, text:'Destinatario', component: destinatario, data: {} },
+                  {id: 3, text:'Produtos e Serviços', component: produtosServicos, data: {} },
+                  {id: 4, text:'Totais ', component: totais, data: {} },
+                  {id: 5, text:'Transportes', component: transporte, data: {} },
+                  {id: 6, text:'Cobrança ', component: cobranca, data: {} },
+                  {id: 7, text:'Informações Adicionais ', component: informacoesAdicionais, data: {} },
               ],
           }
-      },
+    },
     created(){
         this.syncNotaAction()
     },
@@ -121,19 +121,6 @@ export default {
         ...mapActions({
             syncNotaAction: 'nota/syncNotaAction',
         }),
-        emitente(){
-            return {
-                nomeRazaoSocial: 'Growth Supplements',
-                nomeFantasia: 'N/D',
-                CNPJ: '10.832.644/0001-08',
-                endereco: 'Rua Leopardo, 884',
-                bairroDistrito: 'Jose Amandio',
-                CEP: '09930-970',
-                municipio: '4202453 - Bombinhas',
-                telefone: '(47)3369-0062',
-                UF: 'SC',
-            }
-        }
     },
     watch:{
         notaGetter(v) {

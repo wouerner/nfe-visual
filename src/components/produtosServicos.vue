@@ -1,5 +1,7 @@
 <template>
     <v-container grid-list-md text-xs-center>
+        <nFolha :data="dataMod" />
+
         <v-subheader>Dados dos Produtos e Serviços</v-subheader>
 
         <v-expansion-panel>
@@ -483,11 +485,21 @@
         </v-layout>
     </v-container>
 </template>
+
 <script>
+  import nFolha from '@/components/nFolha'
   export default {
     name: 'destinatario',
       props: {
           data: Object
+      },
+      components:{
+          nFolha: nFolha
+      },
+      computed:{
+          dataMod(){
+              return []
+          }
       }
   }
 </script>

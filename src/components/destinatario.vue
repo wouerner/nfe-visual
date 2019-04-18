@@ -1,142 +1,93 @@
 <template>
     <v-container grid-list-md text-xs-center>
-        <v-subheader>Dados do Destinatário</v-subheader>
-        <v-layout row wrap>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">Modelo:
-                        Nome / Razão Social
-                        <strong>Cleber Costa dos Santos</strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">
-                        CPF
-                        <strong>
-                            019.951.921-80
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">
-                        Endereço
-                        <strong>
-                            SQS 404 Bloco K,  205
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">
-                        Bairro / Distrito
-                        <strong>
-                            Asa Sul
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">
-                        CEP
-                        <strong>
-                            70238-110
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">
-                        Município
-                        <strong>
-                            5300108 - Brasilia
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">
-                        Telefone
-                        <strong>
-                            (61)99269-8358
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">
-                        UF
-                        <strong>
-                            DF
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">
-                        País
-                        <strong>
-                            1058 - Brasil
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">
-                        Indicador IE
-                        <strong>
-                            09 - Não Contribuinte, que pode ou não possuir Inscrição Estadual no Cadastro de Contribuintes do ICMS
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">
-                        Inscrição Estadual
-                        <strong>
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">
-                        Inscrição SUFRAMA
-                        <strong>
-                            IM
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex >
-                <v-card>
-                    <v-card-text class="px-0">
-                        E-mail
-                        <strong>
-                            oclebersantos@gmail.com
-                        </strong>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-        </v-layout>
+        <nFolha :data="dataMod" />
     </v-container>
 </template>
+
 <script>
+  import nFolha from '@/components/nFolha'
   export default {
-    name: 'destinatario',
+    name: 'Destinatario',
+      components:{
+          nFolha: nFolha
+      },
       props: {
           data: Object
+      },
+      computed:{
+          dataMod(){
+              return [
+                {
+                   title: 'Dados do Emitente',
+                   data: [
+                    {
+                        label: 'Nome / Razão Social',
+                        value: this.data.nomeRazaoSocial
+                    },
+                    {
+                        label: 'Nome Fantasia',
+                        value: this.data.nomeFantasia
+                    },
+                    {
+                        label: 'CNPJ',
+                        value: this.data.CNPJ
+                    },
+                    {
+                        label: 'Endereço',
+                        value: this.data.endereco
+                    },
+                    {
+                        label: 'Bairro/Distrito',
+                        value: this.data.bairroDistrito
+                    },
+                    {
+                        label: 'CEP',
+                        value: this.data.CEP
+                    },
+                    {
+                        label: 'Municípios',
+                        value: this.data.municipios
+                    },
+                    {
+                        label: 'Telefone',
+                        value: this.data.telefone
+                    },
+                    {
+                        label: 'UF',
+                        value: this.data.UF
+                    },
+                    {
+                        label: 'País',
+                        value: this.data.pais
+                    },
+                    {
+                        label: 'Inscrição Estadual',
+                        value: this.data.pais
+                    },
+                    {
+                        label: 'Inscrição Estadual do Substituto Tributário',
+                        value: this.data.pais
+                    },
+                    {
+                        label: 'Inscrição Municipal',
+                        value: this.data.pais
+                    },
+                    {
+                        label: 'Município da Ocorrência do Fato Gerador do ICMS',
+                        value: this.data.pais
+                    },
+                    {
+                        label: 'CNAE Fiscal ',
+                        value: this.data.pais
+                    },
+                    {
+                        label: 'Código de Regime Tributário',
+                        value: this.data.pais
+                    },
+                   ]
+                }
+            ]
+          }
       }
   }
 </script>
