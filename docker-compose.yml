@@ -1,19 +1,8 @@
 version: '3'
 services:
-  #nginx:
-  #  build: .
-  #  image: nginx-iqoption
-  #  container_name: nginx-iqoption
-  #  # working_dir: /application
-  #  volumes:
-  #   - .:/var/www/html
-  #  #- ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-  #  ports:
-  #    - "8080:80"
-
   webapp-service:
     image: node:10-slim
-    container_name: nfe-visual 
+    container_name: nfe-visual
     user: "node"
     working_dir: /home/node/app
     volumes:
