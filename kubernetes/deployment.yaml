@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nfe-visual-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nfe
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: nfe
+        tier: frontend
+    spec:
+      containers:
+        - name: nfe
+          image: wouerner/nfe-visual:latest
+          ports:
+            - containerPort: 80
