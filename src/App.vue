@@ -1,6 +1,5 @@
 <template>
   <v-app>
-
     <v-toolbar
         color="blue darken-3"
         dark
@@ -18,13 +17,38 @@
         label="Search"
         class="hidden-sm-and-down"
     ></v-text-field>
-        <v-spacer></v-spacer>
-        <v-btn icon>
-            <v-icon>apps</v-icon>
-        </v-btn>
-        <v-btn icon>
-            <v-icon>notifications</v-icon>
-        </v-btn>
+    <v-spacer></v-spacer>
+    <v-menu
+        :close-on-content-click="false"
+        offset-y
+    >
+        <v-avatar 
+            color="indigo"
+            slot="activator"
+        >
+            <v-icon dark>account_circle</v-icon>
+        </v-avatar>
+        <v-card style="width: 440px;">
+            <v-list>
+                <v-list-tile avatar>
+                    <v-list-tile-avatar>
+                        <v-avatar
+                            color="teal"
+                            size="35px"
+                            class="mr-1 left"
+                        >
+                            <span class="white--text headline">U</span>
+                        </v-avatar>
+                    </v-list-tile-avatar>
+                    <v-list-tile-content>
+                        <v-list-tile-title>Usuario 01</v-list-tile-title>
+                        <v-list-tile-sub-title>123.123.123-90</v-list-tile-sub-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+            </v-list>
+            <v-divider/>
+        </v-card>
+    </v-menu>
     </v-toolbar>
 
     <v-content>
@@ -34,13 +58,8 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  },
   data () {
     return {
       //
