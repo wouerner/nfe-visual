@@ -7,8 +7,8 @@
         :clipped-left="$vuetify.breakpoint.mdAndUp"
         fixed
     >
-    <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
-        <span class="hidden-sm-and-down">NF-E Visual</span>
+    <v-toolbar-title style="width: 300px" class="ml-0 pl-3" to="/">
+        <v-btn class="hidden-sm-and-down " flat to="/nfe">NF-E Visual</v-btn>
     </v-toolbar-title>
     <v-text-field
         flat
@@ -16,6 +16,7 @@
         prepend-icon="search"
         label="Search"
         class="hidden-sm-and-down"
+        @keyup.enter="search()"
     ></v-text-field>
     <v-spacer></v-spacer>
     <v-menu
@@ -63,6 +64,11 @@ export default {
   data () {
     return {
       //
+    }
+  },
+  methods:{
+    search() {
+        this.$router.push('/nfe/nota');
     }
   }
 }

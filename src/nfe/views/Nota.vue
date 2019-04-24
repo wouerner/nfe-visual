@@ -1,5 +1,6 @@
 <template>
     <div>
+      <v-btn to="/nfe/listar">Voltar</v-btn>
         <v-container  grid-list-md text-xs-center>
             <v-subheader>
                 Dados Gerais
