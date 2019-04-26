@@ -1,10 +1,14 @@
-// import * as avaliacaoResultadosHelperAPI from '@/helpers/api/AvaliacaoResultados';
+import * as api from '@/api/usuario';
 import * as types from './types'
 
-export const dadosMenu = ({ commit }) => {
- 	commit(types.SET_REGISTROS_TABELA, {})
-}
+export const syncUsuarioAction = ({ commit }, params) => {
+    api.syncUsuario(params)
+        .then((response) => {
+            const { data } = response;
+            commit(types.SYNC_USUARIO, data)
+        }).catch((e) => {
+            console.log(e)
+            // throw new TypeError(e, 'error', 10);
+        });
 
-export const usuario = ({ commit }, params) => {
-  commit(types.SET_USUARIO, params)
-}
+};

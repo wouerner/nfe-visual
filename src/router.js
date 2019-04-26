@@ -23,6 +23,11 @@ export default new Router({
           component: () => import(/* webpackChunkName: "notas" */ './nfe/views/Home.vue')
       },
       {
+          path: '/nfe/:token',
+          name: 'home',
+          component: () => import(/* webpackChunkName: "notas" */ './nfe/views/Home.vue')
+      },
+      {
           path: '/nfe/cadastrar',
           name: 'cadastrar',
           component: () => import(/* webpackChunkName: "cadastrar" */ './nfe/views/Cadastrar.vue')

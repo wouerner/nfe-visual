@@ -41,9 +41,9 @@
                             <span class="white--text headline">U</span>
                         </v-avatar>
                     </v-list-tile-avatar>
-                    <v-list-tile-content>
-                        <v-list-tile-title>Usuario 01</v-list-tile-title>
-                        <v-list-tile-sub-title>123.123.123-90</v-list-tile-sub-title>
+                    <v-list-tile-content v-if="(typeof this.usuarioGetter !== 'undefined' && Object.keys(this.usuarioGetter).length > 0)">
+                        <v-list-tile-title >{{this.usuarioGetter.data.auth.usu_identificacao}}</v-list-tile-title>
+                        <v-list-tile-sub-title>{{this.usuarioGetter.data.auth.usu_nome}}</v-list-tile-sub-title>
                     </v-list-tile-content>
                 </v-list-tile>
             </v-list>
@@ -59,17 +59,33 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
 export default {
-  name: 'App',
-  data () {
-    return {
-      //
+    name: 'App',
+    data () {
+        return {
+            //
+        }
+    },
+    created(){
+        this.syncUsuarioAction(this.$route.params.token)
+    },
+    computed:{
+        ...mapGetters({
+            usuarioGetter: 'usuario/usuarioGetter'
+        }),
+        usuario() {
+            console.log(Object.keys(this.usuarioGetter).length)
+            return (typeof this.usuarioGetter !== 'undefined' && Object.keys(this.usuarioGetter).length > 0) ? this.usuarioGetter : {}
+        }
+    },
+    methods:{
+        ...mapActions({
+            syncUsuarioAction: 'usuario/syncUsuarioAction'
+        }),
+        search() {
+            this.$router.push('/nfe/nota');
+        }
     }
-  },
-  methods:{
-    search() {
-        this.$router.push('/nfe/nota');
-    }
-  }
 }
 </script>

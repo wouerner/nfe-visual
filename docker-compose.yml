@@ -1,8 +1,8 @@
 version: '3'
 services:
-  webapp-service:
+  nfe-visual-dev:
     image: node:10-slim
-    container_name: nfe-visual
+    container_name: nfe-visual-dev
     user: "node"
     working_dir: /home/node/app
     volumes:
@@ -11,3 +11,5 @@ services:
       sh -c 'npm run serve'
     ports:
       - "8080:8080"
+    environment:
+      - VUE_APP_API=http://localhost:8081

@@ -5,7 +5,7 @@ export const state = {
 }
 
 export const mutations = {
-  [types.SET_USUARIO] (state, params) {
+  [types.SYNC_USUARIO] (state, params) {
     state.usuario = params
   }
 }

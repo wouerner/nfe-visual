@@ -12,21 +12,19 @@ import axios from 'axios';
 // }, err => Promise.reject(err));
 
 let instance = {};
+    console.log(process.env.VUE_APP_API)
 if (process.env.NODE_ENV !== 'production') {
 
     instance = axios.create({
-        baseURL: 'http://localhost:8081',
+        baseURL: process.env.VUE_APP_API,
     });
 } else {
     instance = axios.create({
-        baseURL: 'http://localhost:8081',
+        baseURL: process.env.VUE_APP_API,
     });
 }
 
 export const getRequest = function(path) {
-
-    console.log(path);
-    console.log(instance);
     return instance.get(`${path}`);
 }
 
