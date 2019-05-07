@@ -5,7 +5,7 @@
             <v-subheader>
                 Dados Gerais
             </v-subheader>
-            <v-layout row wrap>
+            <v-layout row wrap v-if="Object.keys(nota).length > 0 ">
                 <v-flex >
                     <v-card
                         :hover="true"
@@ -15,7 +15,7 @@
                         <v-card-text class="px-0 py-0">
                             <h5>Chave de Acesso:</h5>
                             <strong>
-                                4219 0110 8326 4400 0108 5500 4000 0456 4919 1688 6995
+                                {{this.nota.infNFe.NFe.infNFe.attributes.Id}}
                             </strong>
                         </v-card-text>
                     </v-card>
@@ -29,7 +29,7 @@
                         >
                             <h5>Número:</h5>
                             <strong>
-                                45649
+                                {{this.nota.infNFe.NFe.infNFe.ide.nNF}}
                             </strong>
                         </v-card-text>
                     </v-card>
@@ -43,7 +43,7 @@
                         >
                             <h5>Versão XML</h5>
                             <strong>
-                                4.00
+                                {{this.nota.infNFe.NFe.infNFe.attributes.versao}}
                             </strong>
                         </v-card-text>
                     </v-card>
@@ -73,7 +73,7 @@
                 :value="`tab-${t.id}`"
             >
                  <v-card flat>
-                    <component :is="t.component" :data="t.data"/>
+                    <component :is="t.component" :data="t.data" v-if="t.data"/>
                  </v-card>
             </v-tab-item>
         </v-tabs-items>
@@ -81,14 +81,14 @@
 </template>
 
 <script>
-import  nfe from '@/components/nfe'
-import  emitente from '@/components/emitente'
-import  destinatario from '@/components/destinatario'
-import  cobranca from '@/components/cobranca'
-import  produtosServicos from '@/components/produtosServicos'
-import  totais from '@/components/totais'
-import  transporte from '@/components/transporte'
-import  informacoesAdicionais from '@/components/informacoesAdicionais'
+import nfe from '@/components/nfe'
+import emitente from '@/components/emitente'
+import destinatario from '@/components/destinatario'
+import cobranca from '@/components/cobranca'
+import produtosServicos from '@/components/produtosServicos'
+import totais from '@/components/totais'
+import transporte from '@/components/transporte'
+import informacoesAdicionais from '@/components/informacoesAdicionais'
 
 import { mapActions, mapGetters } from 'vuex';
 
@@ -99,8 +99,8 @@ export default {
           return {
               model:'tab-0',
               tabs:[
-                  {id: 0, text:'NFe', component: nfe, data:{} },
-                  {id: 1, text:'Emitente', component: emitente, data: {} },
+                  {id: 0, text:'NFe', component: nfe, data: this.notaGetter },
+                  {id: 1, text:'Emitente', component: emitente, data: this.emit },
                   {id: 2, text:'Destinatario', component: destinatario, data: {} },
                   {id: 3, text:'Produtos e Serviços', component: produtosServicos, data: {} },
                   {id: 4, text:'Totais ', component: totais, data: {} },
@@ -108,10 +108,12 @@ export default {
                   {id: 6, text:'Cobrança ', component: cobranca, data: {} },
                   {id: 7, text:'Informações Adicionais ', component: informacoesAdicionais, data: {} },
               ],
+              nota: {},
+              emit: {}
           }
     },
     created(){
-        this.syncNotaAction()
+        this.syncNotaAction(this.$route.params.id)
     },
     computed:{
         ...mapGetters({
@@ -124,9 +126,14 @@ export default {
         }),
     },
     watch:{
-        notaGetter(v) {
+        notaGetter(v) { 
             const index = (this.tabs.findIndex(t => t.id == 0 ))
             this.tabs[index].data = v
+            this.nota = v
+            this.tabs[1].data = v.infNFe.NFe.infNFe.emit
+            this.tabs[2].data = v.infNFe.NFe.infNFe.dest
+            this.tabs[4].data = v.infNFe.NFe.infNFe.total
+            //console.log(v.infNFe.NFe.infNFe.emit)
         }
     }
 }

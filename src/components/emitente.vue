@@ -22,7 +22,7 @@
                    data: [
                     {
                         label: 'Nome / Razão Social',
-                        value: this.data.nomeRazaoSocial
+                        value: this.data.xNome
                     },
                     {
                         label: 'Nome Fantasia',
@@ -34,19 +34,19 @@
                     },
                     {
                         label: 'Endereço',
-                        value: this.data.endereco
+                        value: this.data.enderEmit.xLgr
                     },
                     {
                         label: 'Bairro/Distrito',
-                        value: this.data.bairroDistrito
+                        value: this.data.enderEmit.xBairro
                     },
                     {
                         label: 'CEP',
-                        value: this.data.CEP
+                        value: this.data.enderEmit.CEP
                     },
                     {
                         label: 'Municípios',
-                        value: this.data.municipios
+                        value: this.data.enderEmit.xMun
                     },
                     {
                         label: 'Telefone',
@@ -54,11 +54,11 @@
                     },
                     {
                         label: 'UF',
-                        value: this.data.UF
+                        value: this.data.enderEmit.UF
                     },
                     {
                         label: 'País',
-                        value: this.data.pais
+                        value: this.data.enderEmit.xPais
                     },
                     {
                         label: 'Inscrição Estadual',

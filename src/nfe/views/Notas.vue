@@ -8,9 +8,9 @@
   >
       <template v-slot:items="props">
           <td class="">{{ props.item._id }}</td>
-          <td class="">{{ props.item.infNFe.dest.CNPJ }}</td>
-          <td class="">{{ props.item.infNFe.dest.xNome }}</td>
-          <td class=""><v-btn to="/nfe/nota">Visualizar</v-btn></td>
+          <td class="">{{ props.item.infNFe.NFe.infNFe.dest.CNPJ }}</td>
+          <td class="">{{ props.item.infNFe.NFe.infNFe.dest.xNome }}</td>
+          <td class=""><v-btn :to="'/nfe/nota/' + props.item._id">Visualizar</v-btn></td>
       </template>
   </v-data-table>
   </v-container>
