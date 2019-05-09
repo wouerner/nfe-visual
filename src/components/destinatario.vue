@@ -34,19 +34,19 @@
                     },
                     {
                         label: 'Endereço',
-                        value: this.data.enderDest.xLgr
+                        value: this.data.enderDest ? this.data.enderDest.xLgr : ''
                     },
                     {
                         label: 'Bairro/Distrito',
-                        value: this.data.enderDest.xBairro
+                        value: this.data.enderDest ? this.data.enderDest.xBairro : ''
                     },
                     {
                         label: 'CEP',
-                        value: this.data.enderDest.CEP
+                        value: this.data.enderDest ? this.data.enderDest.CEP : ''
                     },
                     {
                         label: 'Municípios',
-                        value: this.data.enderDest.xMun
+                        value: this.data.enderDest ? this.data.enderDest.xMun : ''
                     },
                     {
                         label: 'Telefone',

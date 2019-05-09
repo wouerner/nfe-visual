@@ -100,7 +100,7 @@ export default {
               model:'tab-0',
               tabs:[
                   {id: 0, text:'NFe', component: nfe, data: this.notaGetter },
-                  {id: 1, text:'Emitente', component: emitente, data: this.emit },
+                  {id: 1, text:'Emitente', component: emitente, data: {} },
                   {id: 2, text:'Destinatario', component: destinatario, data: {} },
                   {id: 3, text:'Produtos e Serviços', component: produtosServicos, data: {} },
                   {id: 4, text:'Totais ', component: totais, data: {} },
@@ -133,6 +133,8 @@ export default {
             this.tabs[1].data = v.infNFe.NFe.infNFe.emit
             this.tabs[2].data = v.infNFe.NFe.infNFe.dest
             this.tabs[4].data = v.infNFe.NFe.infNFe.total
+            //this.tabs[5].data = v.infNFe.NFe.infNFe.transp
+            this.tabs[6].data = v.infNFe.NFe.infNFe.cobr
             //console.log(v.infNFe.NFe.infNFe.emit)
         }
     }

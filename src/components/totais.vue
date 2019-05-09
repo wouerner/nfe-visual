@@ -1,6 +1,7 @@
 <template>
     <v-container grid-list-md text-xs-center>
         <nFolha :data="dataMod" v-if="data"/>
+        {{data}}
     </v-container>
 </template>
 <script>
@@ -21,7 +22,7 @@
                    data: [
                     {
                         label: 'Base de Cálculo ICMS',
-                        value: this.data.ICMSTot.vBC
+                        value: this.data ? this.data.vBC : ''
                     },
                     {
                         label: 'Valor do ICMS ',
@@ -29,14 +30,15 @@
                     },
                     {
                         label: 'Valor do ICMS Desonerado   ',
-                        value: this.data.ICMSTot.vICMSDeson
+                        value: this.data ? this.data.vICMSDeson : ''
                     },
                     {
                         label: 'Valor Total do FCP',
-                        value: this.data.ICMSTot.vFCP
+                        value: this.data ? this.data.vFCP : ''
                     },
                    ]},
-                  {data: [
+                  {
+                    data: [
                     {
                         label: 'Valor Total ICMS FCP',
                         value: 0
@@ -72,53 +74,58 @@
                         value: 16700
                     },
                   ]},
-                  {data: [
+                  {
+                    data: [
                     {
                         label: 'Valor do Frete',
-                        value: this.data.ICMSTot.vFrete
+                        value: this.data ? this.data.vFrete : ''
                     },
-                       {
-                           label: 'Valor do Seguro 0,00',
-                           value: this.data.ICMSTot.vSeg
-                       },
-                       {label: 'Valor Total dos Descontos',
-                           value: this.data.ICMSTot.vDesc
-                       },
-                       {
-                           label: 'Valor Total do II',
-                           value: this.data.ICMSTot.vII
-                       },
+                   {
+                       label: 'Valor do Seguro 0,00',
+                       value: this.data ? this.data.vSeg : ''
+                   },
+                   {
+                       label: 'Valor Total dos Descontos',
+                       value: this.data ? this.data.vDesc : ''
+                   },
+                   {
+                       label: 'Valor Total do II',
+                       value: this.data.vII ? this.data.vII : ''
+                   },
                   ]},
-                  {data: [
+                  {
+                      data: [
                        {
                            label: 'Valor Total do IPI 0,00',
-                           value: this.data.ICMSTot.vIPI
+                           value: this.data ? this.data.vIPI : ''
                        },
                        {
                            label: 'Valor Total do IPI Devolvido',
-                           value: this.data.ICMSTot.vIPIDevol
+                           value: this.data ? this.data.vIPIDevol : ''
                        },
                        {
                            label: 'Valor do PIS',
-                           value: this.data.ICMSTot.vPIS
+                           value: this.data ? this.data.vPIS : ''
                        },
                        {
                            label: 'Valor da COFINS 0,00',
-                           value: this.data.ICMSTot.vCOFINS
+                           value: this.data ? this.data.vCOFINS : ''
                        },
-                  ]},
-                  {data: [
+                  ]
+                  },
+                  {
+                      data: [
                        {
                            label: 'Outras Despesas Acessórias',
-                           value: this.data.ICMSTot.vOutro
+                           value: this.data ? this.data.vOutro : ''
                        },
                        {
                            label: 'Valor Total da NFe 0,00',
-                           value: this.data.ICMSTot.vNF
+                           value: this.data  ? this.data.vNF : ''
                        },
                        {
                            label: 'Valor Aproximado dos Tributos',
-                           value: this.data.ICMSTot.vTotTrib
+                           value: this.data ? this.data.vTotTrib : ''
                        }
                    ]
                  }
