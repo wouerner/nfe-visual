@@ -21,7 +21,7 @@
   import  nCel from '@/components/nCel'
 
   export default {
-    name: 'nfe',
+    name: 'NFe',
       components:{
           nCel: nCel
       },
@@ -36,27 +36,27 @@
                    data: [
                     {
                         label: 'Modelo',
-                        value: this.data.modelo
+                        value: this.data.infNFe.NFe.infNFe.ide.mod
                     },
                     {
                         label: 'Série',
-                        value: this.data.serie
+                        value: this.data.infNFe.NFe.infNFe.ide.serie
                     },
                     {
                         label: 'Número',
-                        value: this.data.numero
+                        value: this.data.infNFe.NFe.infNFe.ide.nNF
                     },
                     {
                         label: 'Data de Emissão',
-                        value: this.data.dtEmissao
+                        value: this.data.infNFe.NFe.infNFe.ide.dhEmi
                     },
                     {
                         label: 'Data Saída/Entrada',
-                        value: this.data.dtSaidaEntrada
+                        value: this.data.infNFe.NFe.infNFe.ide.dhSaiEnt
                     },
                     {
                         label: 'Valor Total da Nota Fiscal',
-                        value: this.data.valorTotalNotaFiscal
+                        value: this.data.infNFe.NFe.infNFe.pag.detPag.vPag
                     },
                    ]
                 },
@@ -65,19 +65,19 @@
                    data: [
                     {
                         label: 'CNPJ',
-                        value: this.data.CNPJ
+                        value: this.data.infNFe.NFe.infNFe.emit.CNPJ
                     },
                     {
                         label: 'Nome / Razão Social',
-                        value: this.data.razaoSocial
+                        value: this.data.infNFe.NFe.infNFe.emit.xNome
                     },
                     {
                         label: 'Inscrição Estadual',
-                        value: this.data.inscricaoEstadual
+                        value: this.data.infNFe.NFe.infNFe.emit.IE
                     },
                     {
                         label: 'UF',
-                        value: this.data.UF
+                        value: this.data.infNFe.NFe.infNFe.emit.enderEmit.UF
                     },
                    ]
                 },
@@ -86,15 +86,15 @@
                    data: [
                     {
                         label: 'CPF',
-                        value: this.data.CNPJ
+                        value: this.data.infNFe.NFe.infNFe.dest.CPF
                     },
                     {
                         label: 'Nome / Razão Social',
-                        value: this.data.razaoSocialDestinatario
+                        value: this.data.infNFe.NFe.infNFe.dest.xNome
                     },
                     {
                         label: 'UF',
-                        value: this.data.UFDestinatario
+                        value: this.data.infNFe.NFe.infNFe.dest.enderDest.UF
                     },
                     {
                         label: 'Inscrição Estadual',
@@ -119,11 +119,11 @@
                     data: [
                         {
                             label: 'Processo',
-                            value: this.data.processo
+                            value: this.data.infNFe.NFe.infNFe.ide.procEmi
                         },
                         {
                             label: 'Versão do Processo',
-                            value: this.data.versaoProcesso
+                            value: this.data.infNFe.NFe.infNFe.ide.verProc
                         },
                         {
                             label: 'Tipo de Emissão',
@@ -152,19 +152,19 @@
                     ]
                 },
                 {
-                   title: 'Situação Atual: AUTORIZADA (Ambiente de autorização: Produção)',
+                   title: 'Situação Atual',
                    data: [
                     {
                         label: 'Eventos da NF-e',
-                        value: this.data.CNPJ
+                        value: this.data.infNFe.protNFe.infProt.xMotivo
                     },
                     {
                         label: 'Protocolo',
-                        value: this.data.CNPJ
+                        value: this.data.infNFe.protNFe.infProt.nProt
                     },
                     {
                         label: 'Data Autorização',
-                        value: this.data.CNPJ
+                        value: this.data.infNFe.protNFe.infProt.dhRecbto
                     },
                     {
                         label: 'Data Inclusão AN',

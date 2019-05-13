@@ -4,7 +4,7 @@
         >
             <v-container grid-list-md text-xs-center>
                 <template v-for="d in data">
-                    <v-subheader>{{d.title}}</v-subheader>
+                    <v-subheader v-if="d.title">{{d.title}}</v-subheader>
                     <v-layout  row wrap>
                         <v-flex v-for="field in d.data" >
                             <nCel :label="field.label" :value="field.value" ></nCel>
