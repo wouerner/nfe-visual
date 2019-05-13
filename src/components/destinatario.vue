@@ -22,7 +22,7 @@
                    data: [
                     {
                         label: 'Nome / Razão Social',
-                        value: this.data.nomeRazaoSocial
+                        value: this.data.xNome
                     },
                     {
                         label: 'Nome Fantasia',
@@ -30,23 +30,23 @@
                     },
                     {
                         label: 'CNPJ',
-                        value: this.data.CNPJ
+                        value: this.data.CPF
                     },
                     {
                         label: 'Endereço',
-                        value: this.data.endereco
+                        value: this.data.enderDest ? this.data.enderDest.xLgr : ''
                     },
                     {
                         label: 'Bairro/Distrito',
-                        value: this.data.bairroDistrito
+                        value: this.data.enderDest ? this.data.enderDest.xBairro : ''
                     },
                     {
                         label: 'CEP',
-                        value: this.data.CEP
+                        value: this.data.enderDest ? this.data.enderDest.CEP : ''
                     },
                     {
                         label: 'Municípios',
-                        value: this.data.municipios
+                        value: this.data.enderDest ? this.data.enderDest.xMun : ''
                     },
                     {
                         label: 'Telefone',

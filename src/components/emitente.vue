@@ -22,44 +22,60 @@
                    data: [
                     {
                         label: 'Nome / Razão Social',
-                        value: this.data.nomeRazaoSocial
+                        value: this.data.xNome
                     },
                     {
                         label: 'Nome Fantasia',
                         value: this.data.nomeFantasia
                     },
+                   ]},
+                {
+                   data: [
                     {
                         label: 'CNPJ',
                         value: this.data.CNPJ
                     },
                     {
                         label: 'Endereço',
-                        value: this.data.endereco
-                    },
+                        value: this.data.enderEmit ? this.data.enderEmit.xLgr : ''
+                    },]
+                },
+                {
+                   data: [
                     {
                         label: 'Bairro/Distrito',
-                        value: this.data.bairroDistrito
+                        value: this.data.enderEmit ? this.data.enderEmit.xBairro : ''
                     },
                     {
                         label: 'CEP',
-                        value: this.data.CEP
+                        value: this.data.enderEmit ? this.data.enderEmit.CEP : ''
                     },
+                   ]
+                },
+                {
+                   data: [
                     {
                         label: 'Municípios',
-                        value: this.data.municipios
+                        value: this.data.enderEmit ? this.data.enderEmit.xMun : ''
                     },
                     {
                         label: 'Telefone',
                         value: this.data.telefone
-                    },
+                    }]
+                },
+                {
+                   data: [
                     {
                         label: 'UF',
-                        value: this.data.UF
+                        value: this.data.enderEmit ? this.data.enderEmit.UF : ''
                     },
                     {
                         label: 'País',
-                        value: this.data.pais
-                    },
+                        value: this.data.enderEmit ? this.data.enderEmit.xPais : ''
+                    },]
+                },
+                {
+                   data: [
                     {
                         label: 'Inscrição Estadual',
                         value: this.data.pais
@@ -68,6 +84,10 @@
                         label: 'Inscrição Estadual do Substituto Tributário',
                         value: this.data.pais
                     },
+                   ]
+                },
+                {
+                   data: [
                     {
                         label: 'Inscrição Municipal',
                         value: this.data.pais
@@ -76,6 +96,10 @@
                         label: 'Município da Ocorrência do Fato Gerador do ICMS',
                         value: this.data.pais
                     },
+                   ]
+                },
+                {
+                   data: [
                     {
                         label: 'CNAE Fiscal ',
                         value: this.data.pais
