@@ -1,6 +1,7 @@
 <template>
     <v-container grid-list-md text-xs-center>
         <nFolha :data="dataMod" />
+        {{data}}
     </v-container>
 </template>
 <script>
@@ -34,7 +35,27 @@
                        {label: 'Número de autorização 15 188,61', value: 0 },
                        {label: 'Troco ', value: 0 },
                    ]
-                  }
+                  },
+                  {
+                   title: 'Duplicatas',
+                   data: [
+                       {label: 'Número', value: 0 },
+                       {label: 'Vencimento', value: 0 },
+                       {label: 'Valor', value: 0 },
+                   ]
+                  },
+                  {
+                   title: 'Formas de Pagamento',
+                   data: [
+                       {label: 'Formas de Pagamento', value: 0 },
+                       {label: 'Valor do Pagamento', value: 0 },
+                       {label: 'Tipo de Integração Pagamento', value: 0 },
+                       {label: 'CNPJ da Credenciadora', value: 0 },
+                       {label: 'Bandeira da operadora', value: 0 },
+                       {label: 'Número de autorização', value: 0 },
+                       {label: 'Troco ', value: 0 },
+                   ]
+                  },
             ]
 
         }

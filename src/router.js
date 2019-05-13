@@ -42,6 +42,11 @@ const routes =  [
           component: () => import(/* webpackChunkName: "nota" */ './nfe/views/Nota.vue')
       },
       {
+          path: '/nfe/nota/:id',
+          name: 'nota',
+          component: () => import(/* webpackChunkName: "nota" */ './nfe/views/Nota.vue')
+      },
+      {
           path: '/nfe/listar',
           name: 'notas',
           component: () => import(/* webpackChunkName: "notas" */ './nfe/views/Notas.vue')
