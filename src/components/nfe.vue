@@ -36,27 +36,27 @@
                    data: [
                     {
                         label: 'Modelo',
-                        value: this.data.infNFe.NFe.infNFe.ide.mod
+                        value: this.data.data.NFe.infNFe.ide.mod
                     },
                     {
                         label: 'Série',
-                        value: this.data.infNFe.NFe.infNFe.ide.serie
+                        value: this.data.data.NFe.infNFe.ide.serie
                     },
                     {
                         label: 'Número',
-                        value: this.data.infNFe.NFe.infNFe.ide.nNF
+                        value: this.data.data.NFe.infNFe.ide.nNF
                     },
                     {
                         label: 'Data de Emissão',
-                        value: this.data.infNFe.NFe.infNFe.ide.dhEmi
+                        value: this.data.data.NFe.infNFe.ide.dhEmi
                     },
                     {
                         label: 'Data Saída/Entrada',
-                        value: this.data.infNFe.NFe.infNFe.ide.dhSaiEnt
+                        value: this.data.data.NFe.infNFe.ide.dhSaiEnt
                     },
                     {
                         label: 'Valor Total da Nota Fiscal',
-                        value: this.data.infNFe.NFe.infNFe.pag.detPag.vPag
+                        value: this.data.data.NFe.infNFe.pag.detPag.vPag
                     },
                    ]
                 },
@@ -65,19 +65,19 @@
                    data: [
                     {
                         label: 'CNPJ',
-                        value: this.data.infNFe.NFe.infNFe.emit.CNPJ
+                        value: this.data.data.NFe.infNFe.emit.CNPJ
                     },
                     {
                         label: 'Nome / Razão Social',
-                        value: this.data.infNFe.NFe.infNFe.emit.xNome
+                        value: this.data.data.NFe.infNFe.emit.xNome
                     },
                     {
                         label: 'Inscrição Estadual',
-                        value: this.data.infNFe.NFe.infNFe.emit.IE
+                        value: this.data.data.NFe.infNFe.emit.IE
                     },
                     {
                         label: 'UF',
-                        value: this.data.infNFe.NFe.infNFe.emit.enderEmit.UF
+                        value: this.data.data.NFe.infNFe.emit.enderEmit.UF
                     },
                    ]
                 },
@@ -86,15 +86,15 @@
                    data: [
                     {
                         label: 'CPF',
-                        value: this.data.infNFe.NFe.infNFe.dest.CPF
+                        value: this.data.data.NFe.infNFe.dest.CPF
                     },
                     {
                         label: 'Nome / Razão Social',
-                        value: this.data.infNFe.NFe.infNFe.dest.xNome
+                        value: this.data.data.NFe.infNFe.dest.xNome
                     },
                     {
                         label: 'UF',
-                        value: this.data.infNFe.NFe.infNFe.dest.enderDest.UF
+                        value: this.data.data.NFe.infNFe.dest.enderDest.UF
                     },
                     {
                         label: 'Inscrição Estadual',
@@ -119,11 +119,11 @@
                     data: [
                         {
                             label: 'Processo',
-                            value: this.data.infNFe.NFe.infNFe.ide.procEmi
+                            value: this.data.data.NFe.infNFe.ide.procEmi
                         },
                         {
                             label: 'Versão do Processo',
-                            value: this.data.infNFe.NFe.infNFe.ide.verProc
+                            value: this.data.data.NFe.infNFe.ide.verProc
                         },
                         {
                             label: 'Tipo de Emissão',
@@ -156,15 +156,15 @@
                    data: [
                     {
                         label: 'Eventos da NF-e',
-                        value: this.data.infNFe.protNFe.infProt.xMotivo
+                        value: this.data.data.protNFe.infProt.xMotivo
                     },
                     {
                         label: 'Protocolo',
-                        value: this.data.infNFe.protNFe.infProt.nProt
+                        value: this.data.data.protNFe.infProt.nProt
                     },
                     {
                         label: 'Data Autorização',
-                        value: this.data.infNFe.protNFe.infProt.dhRecbto
+                        value: this.data.data.protNFe.infProt.dhRecbto
                     },
                     {
                         label: 'Data Inclusão AN',

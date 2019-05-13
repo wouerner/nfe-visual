@@ -8,8 +8,17 @@ export const syncUsuarioAction = ({ commit }, params) => {
             const { data } = response;
             commit(types.SYNC_USUARIO, data)
         }).catch((e) => {
-            router.push('/login-again')
+            // router.push('/login-again')
+
             throw new TypeError(e, 'error', 10);
         });
 
 };
+
+export const syncUsuarioLocalAction = ({ commit }, params) => {
+    const data = localStorage.getItem('usuario')
+
+    commit(types.SYNC_USUARIO_LOCAL, data)
+
+};
+
