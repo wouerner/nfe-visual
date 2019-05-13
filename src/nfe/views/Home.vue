@@ -14,10 +14,6 @@ export default {
     created(){
         this.syncUsuarioAction(this.$route.params.token)
     },
-    mounted() {
-        console.log(this.$route.params.token)
-        localStorage.setItem('token', this.$route.params.token);
-    },
     computed:{
         ...mapGetters({
             usuarioGetter: 'usuario/usuarioGetter'

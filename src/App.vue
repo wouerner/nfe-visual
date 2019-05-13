@@ -68,14 +68,13 @@ export default {
         }
     },
     created(){
-        this.syncUsuarioAction(this.$route.params.token)
+        //this.syncUsuarioAction(this.$route.params.token)
     },
     computed:{
         ...mapGetters({
             usuarioGetter: 'usuario/usuarioGetter'
         }),
         usuario() {
-            console.log(Object.keys(this.usuarioGetter).length)
             return (typeof this.usuarioGetter !== 'undefined' && Object.keys(this.usuarioGetter).length > 0) ? this.usuarioGetter : {}
         }
     },

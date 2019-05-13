@@ -7,5 +7,6 @@ export const state = {
 export const mutations = {
   [types.SYNC_USUARIO] (state, params) {
     state.usuario = params
+    localStorage.setItem('usuario', JSON.stringify(params));
   }
 }

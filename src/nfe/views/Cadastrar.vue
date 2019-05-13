@@ -66,8 +66,6 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
-
 export default {
     name: 'Cadastrar',
     data(){
@@ -91,19 +89,6 @@ export default {
             ]
         }
     },
-    created(){
-       this.notasAction()
-    },
-    computed: {
-      ...mapGetters({
-          notasGetter: 'nota/notasGetter',
-      })
-    },
-    methods: {
-        ...mapActions({
-            notasAction: 'nota/notasAction',
-        })
-    }
 }
 </script>
 
