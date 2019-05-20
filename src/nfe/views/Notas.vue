@@ -46,7 +46,7 @@
                     },
                     {
                         text: 'Número',
-                        value: 'data',
+                        value: 'data.NFe.infNFe.ide.nNF',
                     },
                     {
                         text: 'CPF/CNPJ',
@@ -67,17 +67,10 @@
             }
         },
         created(){
-            let urlParams = {};
-            if (this.usuarioGetter.data.auth.usu_identificacao) {
-                urlParams = {
-                    cpf: this.usuarioGetter.data.auth.usu_identificacao
-                };
-            }
-            this.notasAction(urlParams);
+            this.notasAction()
         },
         computed: {
             ...mapGetters({
-                usuarioGetter: 'usuario/usuarioGetter',
                 notasGetter: 'nota/notasGetter',
             })
         },
