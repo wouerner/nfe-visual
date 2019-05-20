@@ -12,6 +12,17 @@ export const notasAction = ({ commit }) => {
         });
 };
 
+export const syncNotasByUserAction = ({ commit }, params) => {
+    api.syncNotasByUser(params)
+        .then((response) => {
+            const { data } = response;
+            commit(types.SYNC_NOTAS, data)
+        }).catch((e) => {
+            // console.log(e)
+            // throw new TypeError(e, 'error', 10);
+        });
+};
+
 export const syncNotaAction = ({ commit }, params) => {
     api.syncNota(params)
         .then((response) => {
@@ -22,3 +33,4 @@ export const syncNotaAction = ({ commit }, params) => {
             // throw new TypeError(e, 'error', 10);
         });
 };
+

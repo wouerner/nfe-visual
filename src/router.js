@@ -15,15 +15,20 @@ const routes =  [
           component: () => import(/* webpackChunkName: "notas" */ './nfe/views/Notas.vue')
       },
       {
+          path: '/login-again',
+          name: 'login-again',
+          component: () => import(/* webpackChunkName: "LoginAgain" */ './nfe/views/LoginAgain.vue')
+      },
+      {
+          path: '/nfe/notas-by-user',
+          name: 'notas-by-user',
+          component: () => import(/* webpackChunkName: "NotasByUser" */ './nfe/views/NotasByUser.vue')
+      },
+      {
           path: '/nfe/:token',
           name: 'home',
           component: () => import(/* webpackChunkName: "Home" */ './nfe/views/Home.vue')
       },
-      {
-          path: '/login-again',
-          name: 'login-again',
-          component: () => import(/* webpackChunkName: "LoginAgain" */ './nfe/views/LoginAgain.vue')
-      }
   ]
 
 const router = new Router({
