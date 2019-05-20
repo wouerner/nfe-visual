@@ -16,7 +16,8 @@
         prepend-icon="search"
         label="Search"
         class="hidden-sm-and-down"
-        @keyup.enter="search()"
+        @keyup.enter="search(searchNota)"
+        v-model="searchNota"
     ></v-text-field>
     <v-spacer></v-spacer>
     <v-menu
@@ -64,7 +65,7 @@ export default {
     name: 'App',
     data () {
         return {
-            //
+            searchNota: '',
         }
     },
     created(){
@@ -84,7 +85,8 @@ export default {
             syncUsuarioAction: 'usuario/syncUsuarioAction'
         }),
         search() {
-            this.$router.push('/nfe/nota');
+            this.$router.push(`/nfe/nota/${this.searchNota}`);
+            this.searchNota = '';
         }
     }
 }

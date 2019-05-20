@@ -136,7 +136,15 @@ export default {
             //this.tabs[5].data = v.infNFe.NFe.infNFe.transp
             this.tabs[6].data = v.infNFe.NFe.infNFe.cobr
             //console.log(v.infNFe.NFe.infNFe.emit)
-        }
+        },
+        $route(to, from) {
+            if (
+                typeof to.params.id !== 'undefined'
+                && to.params.id !== from.params.id
+            ) {
+                this.syncNotaAction(this.$route.params.id)
+            }
+        },
     }
 }
 </script>
