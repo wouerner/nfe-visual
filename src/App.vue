@@ -20,8 +20,8 @@
     ></v-text-field>
     <v-spacer></v-spacer>
 
-    <p>{{(this.usuarioGetter.data ? this.usuarioGetter.data.auth.usu_identificacao : '111111111111' ) | cpf}}<br>
-    {{(this.usuarioGetter.data ? this.usuarioGetter.data.auth.usu_nome : '')}}</p>
+    <p>{{(this.usuarioGetter ? this.usuarioGetter.data.auth.usu_identificacao : '111111111111' ) | cpf}}<br>
+    {{(this.usuarioGetter ? this.usuarioGetter.data.auth.usu_nome : '')}}</p>
     <!--v-menu
         :close-on-content-click="false"
         offset-y

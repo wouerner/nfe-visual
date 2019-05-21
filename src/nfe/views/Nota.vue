@@ -130,11 +130,11 @@ export default {
             const index = (this.tabs.findIndex(t => t.id == 0 ))
             this.tabs[index].data = v
             this.nota = v
-            this.tabs[1].data = v.infNFe.NFe.infNFe.emit
-            this.tabs[2].data = v.infNFe.NFe.infNFe.dest
-            this.tabs[4].data = v.infNFe.NFe.infNFe.total
-            //this.tabs[5].data = v.infNFe.NFe.infNFe.transp
-            this.tabs[6].data = v.infNFe.NFe.infNFe.cobr
+            this.tabs[1].data = v.data.NFe.infNFe.emit
+            this.tabs[2].data = v.data.NFe.infNFe.dest
+            this.tabs[4].data = v.data.NFe.infNFe.total
+            this.tabs[5].data = v.data.NFe.infNFe.transp
+            this.tabs[6].data = v.data.NFe.infNFe.cobr
         }
     }
 }
