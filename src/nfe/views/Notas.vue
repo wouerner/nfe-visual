@@ -1,74 +1,85 @@
 <template>
-  <v-container>
-  <v-data-table
-      :headers="headers"
-      :items="notasGetter"
-      class="elevation-1"
-      :pagination.sync="pagination"
-  >
-      <template v-slot:items="props">
-          <td class="">{{ props.item.chNFe }}</td>
-          <td class="">{{ props.item.data.NFe.infNFe.emit.CNPJ | cnpj }}</td>
-          <td class="">{{ props.item.data.NFe.infNFe.dest.CPF | cpf }}</td>
-          <td class="">
-              <v-btn :to="'/nfe/nota/' + props.item._id">Visualizar</v-btn>
-              <v-btn :href="'http://localhost:8081/download-local/' + props.item.chNFe">Baixar</v-btn>
-          </td>
-      </template>
-  </v-data-table>
-  </v-container>
+    <v-container>
+        <v-btn to="/nfe/cadastrar">Cadastrar Nota</v-btn>
+        <v-data-table
+                :pagination.sync="pagination"
+                :headers="headers"
+                :items="notasGetter"
+                class="elevation-1"
+        >
+            <template v-slot:items="props">
+                <td class="">{{ props.item.chNFe}}</td>
+                <td class="">{{ props.item.data.NFe.infNFe.ide.nNF }}</td>
+                <td class="">{{ props.item.data.NFe.infNFe.dest.CPF }}</td>
+                <td class="">{{ props.item.data.NFe.infNFe.dest.xNome }}</td>
+                <td class="text-xs-center">
+                    <v-tooltip bottom>
+                        <v-btn
+                            :to="'/nfe/nota/' + props.item._id"
+                            slot="activator"
+                            flat
+                            icon
+                        >
+                            <v-icon>visibility</v-icon>
+                        </v-btn>
+                        <span>Visualizar</span>
+                    </v-tooltip>
+                </td>
+            </template>
+        </v-data-table>
+    </v-container>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+    import { mapActions, mapGetters } from 'vuex';
 
-export default {
-    data(){
-        return {
-            pagination:{rowsPerPage: 10},
-            headers: [
-                {
-                  text: 'Chave de Acesso',
-                  value: 'id',
+    export default {
+        data(){
+            return {
+                pagination: {
+                    rowsPerPage: 10
                 },
-                {
-                  text: 'Emitente',
-                  value: 'data',
-                },
-                {
-                  text: 'Destinatário',
-                  value: 'destinatario',
-                },
-                {
-                  text: 'Ações',
-                  value: '',
-                }
-            ],
-            data: [ ]
+                headers: [
+                    {
+                        text: 'Chave de Acesso',
+                        value: 'chNFe',
+                    },
+                    {
+                        text: 'Número',
+                        value: 'data.NFe.infNFe.ide.nNF',
+                    },
+                    {
+                        text: 'CPF/CNPJ',
+                        value: 'data',
+                    },
+                    {
+                        text: 'Destinatario',
+                        value: 'destinatario',
+                    },
+                    {
+                        text: 'Ações',
+                        value: '',
+                    }
+                ],
+                data: [
+
+                ]
+            }
+        },
+        created(){
+            this.notasAction()
+        },
+        computed: {
+            ...mapGetters({
+                notasGetter: 'nota/notasGetter',
+            })
+        },
+        methods: {
+            ...mapActions({
+                notasAction: 'nota/notasAction',
+            })
         }
-    },
-    filters: {
-      cpf: function (value) {
-          return value.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-      },
-      cnpj: function (value) {
-          return value.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
-      }
-    },
-    created(){
-       this.notasAction()
-    },
-    computed: {
-      ...mapGetters({
-          notasGetter: 'nota/notasGetter',
-      })
-    },
-    methods: {
-        ...mapActions({
-            notasAction: 'nota/notasAction',
-        })
     }
-}
 </script>
 
 <style>
