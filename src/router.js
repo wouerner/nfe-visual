@@ -4,6 +4,11 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 const routes =  [
+       {
+           path: '/nfe/certificado',
+           name: 'certificado',
+           component: () => import(/* webpackChunkName: "Certificado" */ './nfe/views/Certificado.vue')
+       },
       {
           path: '/nfe/nota/:id',
           name: 'nota',
