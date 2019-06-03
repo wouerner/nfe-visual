@@ -190,11 +190,11 @@
                 password1: 'Password',
                 racaoRules: [
                     v => !!v || 'Ração Social is required',
-                    v => v.length >= 5 || 'Name must be less than 5 characters'
+                    v => (v && v.length >= 5) || 'Name must be less than 5 characters'
                 ],
                 cnpjRules: [
                     v => !!v || 'Ração Social is required',
-                    v => v.length >= 14 || 'Name must be less than 14 characters'
+                    v => (v && v.length >= 14) || 'Name must be less than 14 characters'
                 ],
                 tipoRules: [
                     v => !!v || 'Tipo de ambiente is required',
@@ -224,13 +224,14 @@
                 if (this.$refs.form.validate()) {
                     this.certificadoAction(this.certificado1);
                     this.menssageSuccess();
+                    this.resetValidation();
                 } else {
                     this.menssageError();
                 }
 
             },
             resetValidation () {
-                this.$refs.form.resetValidation()
+                this.$refs.form.reset()
             },
             pickFile () {
                 this.$refs.files.click ()
@@ -267,8 +268,3 @@
         }
     }
 </script>
-
-<style>
-
-</style>
-<!--funcioado com POST dos arquivos-->
