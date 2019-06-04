@@ -240,7 +240,7 @@
                 const files = e.target.files;
                 if(files[0] !== undefined) {
                     this.certificado1.path = files[0];
-                    this.getFileExtension(files[0].name);
+                    this.getFileMineType(files[0].type);
                     const fr = new FileReader ();
                     fr.readAsDataURL(files[0]);
                     fr.addEventListener('load', () => {
@@ -252,8 +252,12 @@
                     this.imageFile = '';
                 }
             },
-            getFileExtension(filename) {
-                console.log(filename.slice((filename.lastIndexOf(".") - 1 >>> 0) + 2));
+            getFileMineType(files) {
+                const  mimeType = files;
+                if (mimeType != 'application/x-pkcs12') {
+                        this.menssageError('Aceito somente arquivo .pfx');
+                        this.resetValidation();
+                }
             },
             menssageSuccess(text = 'Cadastrado com sucesso!'){
                 this.statusSnackBar = 'success';
