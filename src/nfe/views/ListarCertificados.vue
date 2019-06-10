@@ -12,21 +12,6 @@
                             xs5
                             offset-xs1
                             class=" text-xs-right">
-                        <!--                      <h6>-->
-                        <!--                          <div class="page-title">-->
-                        <!--                              <div class="row">-->
-                        <!--                                  <div-->
-                        <!--                                          class="col s12 m3 l2 right-align">-->
-                        <!--                                      <a-->
-                        <!--                                              title="Voltar"-->
-                        <!--                                              class="btn small grey lighten-3 grey-text z-depth-0 chat-toggle"-->
-                        <!--                                              @click="$router.go(-1)"-->
-                        <!--                                      ><i class="material-icons">arrow_back</i>-->
-                        <!--                                      </a>-->
-                        <!--                                  </div>-->
-                        <!--                              </div>-->
-                        <!--                          </div>-->
-                        <!--                      </h6>-->
                     </v-flex>
                 </v-layout>
             </v-container>

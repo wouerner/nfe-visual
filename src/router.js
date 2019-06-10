@@ -9,6 +9,11 @@ const routes =  [
            name: 'certificado',
            component: () => import(/* webpackChunkName: "Certificado" */ './nfe/views/Certificado.vue')
        },
+    {
+        path: '/nfe/listar-certificados',
+        name: 'ListarCertificados',
+        component: () => import(/* webpackChunkName: "ListarCertificados" */ './nfe/views/ListarCertificados.vue')
+    },
       {
           path: '/nfe/nota/:id',
           name: 'nota',
