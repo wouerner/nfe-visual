@@ -78,7 +78,7 @@
               </v-list-tile-content>
             </v-list-tile>
 
-            <v-list-tile :href="'listar-certificado'">
+            <v-list-tile :href="'listar-certificados'">
               <v-list-tile-action>
                 <v-icon color="indigo">list</v-icon>
               </v-list-tile-action>

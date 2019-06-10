@@ -14,3 +14,7 @@ export const syncCertificado = (params) => {
     const path = '/nfe/admin/cadastrar-certificado';
     return http.postRequest(path, buildData(params));
 };
+
+export const syncListarCertificado  = function() {
+    return http.postRequest('/nfe/admin/listar-certificados');
+};
