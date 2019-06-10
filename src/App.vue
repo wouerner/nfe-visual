@@ -21,13 +21,83 @@
     ></v-text-field>
     <v-spacer></v-spacer>
 
-    <p>{{(this.usuarioGetter ? this.usuarioGetter.data.auth.usu_identificacao : '111111111111' ) | cpf}}<br>
-    {{(this.usuarioGetter ? this.usuarioGetter.data.auth.usu_nome : '')}}</p>
+
+      <v-menu
+              :close-on-content-click="false"
+              offset-x
+      >
+        <v-btn
+                slot="activator"
+                :icon="$vuetify.breakpoint.smAndDown"
+                class="pa-0"
+                flat
+        >
+          <v-avatar
+                  color="teal"
+                  size="30px"
+                  class="mr-1 left">
+            <span class="white--text headline">T</span>
+          </v-avatar>
+          <span class="hidden-sm-and-down text-capitalize">{{ (this.usuarioGetter ? this.usuarioGetter.data.auth.usu_nome : 'Teste') }}</span>
+          <v-icon
+                  right
+                  dark
+                  class="ma-0 hidden-sm-and-down">arrow_drop_down</v-icon>
+        </v-btn>
+
+        <v-card style="width: 440px;">
+          <v-list>
+            <v-list-tile avatar>
+              <v-list-tile-avatar>
+                <v-avatar
+                        color="blue darken-3"
+                        size="35px"
+                        class="mr-1 left">
+<!--                  primeiraLetraNomeUsuario-->
+                  <span class="white--text headline">T</span>
+                </v-avatar>
+              </v-list-tile-avatar>
+              <v-list-tile-content>
+<!--                nomeUsuarioCompleto -->
+                <v-list-tile-title> Teste bla bla bla </v-list-tile-title>
+                <v-list-tile-sub-title>{{ (this.usuarioGetter ? this.usuarioGetter.data.auth.usu_identificacao : '11111111111' ) | cpf }}</v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list>
+
+          <v-divider/>
+          <v-divider/>
+          <v-list>
+            <v-list-tile :href="'certificado'">
+              <v-list-tile-action>
+                <v-icon color="indigo">note_add</v-icon>
+              </v-list-tile-action>
+
+              <v-list-tile-content>
+                <v-list-tile-title>Cadastrar Certificado</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+
+            <v-list-tile :href="'listar-certificado'">
+              <v-list-tile-action>
+                <v-icon color="indigo">list</v-icon>
+              </v-list-tile-action>
+
+              <v-list-tile-content>
+                <v-list-tile-title>Listar Certificados</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list>
+        </v-card>
+      </v-menu>
+
+<!--    <p>{{(this.usuarioGetter ? this.usuarioGetter.data.auth.usu_identificacao : '111111111111' ) | cpf}}<br>-->
+<!--    {{(this.usuarioGetter ? this.usuarioGetter.data.auth.usu_nome : '')}}</p>-->
     <!--v-menu
         :close-on-content-click="false"
         offset-y
     >
-        <v-avatar 
+        <v-avatar
             color="indigo"
             slot="activator"
         >
