@@ -20,11 +20,9 @@
         v-model="searchNota"
     ></v-text-field>
     <v-spacer></v-spacer>
-
-
       <v-menu
-              :close-on-content-click="false"
-              offset-x
+              transition="slide-y-transition"
+              bottom
       >
         <v-btn
                 slot="activator"
@@ -45,7 +43,7 @@
                   class="ma-0 hidden-sm-and-down">arrow_drop_down</v-icon>
         </v-btn>
 
-        <v-card style="width: 440px;">
+        <v-card style="width: 360px;">
           <v-list>
             <v-list-tile avatar>
               <v-list-tile-avatar>
@@ -64,9 +62,7 @@
               </v-list-tile-content>
             </v-list-tile>
           </v-list>
-
-          <v-divider/>
-          <v-divider/>
+          <v-divider/><v-divider/>
           <v-list>
             <v-list-tile :href="'certificado'">
               <v-list-tile-action>
