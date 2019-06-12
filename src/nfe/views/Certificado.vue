@@ -7,7 +7,7 @@
                             row
                             wrap>
                         <v-flex xs6>
-                            <h2 class="mr-3 blue--text">Cadastar Certificado</h2>
+                            <h2 class="mr-3 blue--text">Cadastrar Certificado</h2>
                         </v-flex>
                         <v-flex
                                 xs5
@@ -37,7 +37,7 @@
                                         v-model="certificado1.razaosocial"
                                         :rules="racaoRules"
                                         :counter="50"
-                                        label="Ração Social"
+                                        label="Razão Social"
                                         required
                                 ></v-text-field>
                             </v-flex>
@@ -148,7 +148,7 @@
                             </v-flex>
                         </v-layout>
                         <div class="text-xs-right">
-                            <v-btn @click="submit"> Cadastrar </v-btn>
+                            <v-btn @click="submit" :loading="loading"> Cadastrar </v-btn>
                             <v-btn @click="resetValidation"> Limpar </v-btn>
                         </div>
                     </v-container>
@@ -165,6 +165,7 @@
         name: 'Certificado',
         data(){
             return {
+                loading: false,
                 statusSnackBar: '',
                 snackbar: false,
                 y: 'top',
@@ -192,11 +193,11 @@
                 show3: false,
                 password1: 'Password',
                 racaoRules: [
-                    v => !!v || 'Ração Social is required',
+                    v => !!v || 'Razão Social is required',
                     v => (v && v.length >= 5) || 'Name must be less than 5 characters'
                 ],
                 cnpjRules: [
-                    v => !!v || 'Ração Social is required',
+                    v => !!v || 'Razão Social is required',
                     v => (v && v.length >= 14) || 'Name must be less than 14 characters'
                 ],
                 tipoRules: [
@@ -225,7 +226,10 @@
             submit () {
                 console.log('aaaadsdsd', this.certificado1);
                 if (this.$refs.form.validate()) {
-                    this.certificadoAction(this.certificado1);
+                    this.loading = true;
+                    this.certificadoAction(this.certificado1).then(() => {
+                        this.loading = false;
+                    });
                     this.menssageSuccess();
                     this.resetValidation();
                 } else {
@@ -256,7 +260,7 @@
                 }
             },
             getFileMineType(files) {
-                const  mimeType = files;
+                const mimeType = files;
                 if (mimeType != 'application/x-pkcs12') {
                     this.menssageError('Aceito somente arquivo .pfx');
                     this.resetValidation();
