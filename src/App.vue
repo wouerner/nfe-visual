@@ -10,15 +10,15 @@
     <v-toolbar-title style="width: 300px" class="ml-0 pl-3" to="/">
         <v-btn class="hidden-sm-and-down " flat to="/nfe/listar">NF-E Visual</v-btn>
     </v-toolbar-title>
-    <v-text-field
-        flat
-        solo-inverted
-        prepend-icon="search"
-        label="Search"
-        class="hidden-sm-and-down"
-        @keyup.enter="search(searchNota)"
-        v-model="searchNota"
-    ></v-text-field>
+        <v-text-field
+                append-icon="search"
+                label="Search"
+                solo-inverted
+                flat
+                class="mx-3"
+                @keyup.enter="search(searchNota)"
+                v-model="searchNota"
+        ></v-text-field>
     <v-spacer></v-spacer>
       <v-menu
               transition="slide-y-transition"
@@ -34,9 +34,9 @@
                   color="teal"
                   size="30px"
                   class="mr-1 left">
-            <span class="white--text headline">T</span>
+              <span class="white--text headline">{{ primeiraLetraNomeUsuario }}</span>
           </v-avatar>
-          <span class="hidden-sm-and-down text-capitalize">{{ (this.usuarioGetter ? this.usuarioGetter.data.auth.usu_nome : 'Teste') }}</span>
+            <span class="hidden-sm-and-down text-capitalize">{{ nomeUsuario }}</span>
           <v-icon
                   right
                   dark
@@ -51,14 +51,12 @@
                         color="blue darken-3"
                         size="35px"
                         class="mr-1 left">
-<!--                  primeiraLetraNomeUsuario-->
-                  <span class="white--text headline">T</span>
+                    <span class="white--text headline">{{ primeiraLetraNomeUsuario }}</span>
                 </v-avatar>
               </v-list-tile-avatar>
               <v-list-tile-content>
-<!--                nomeUsuarioCompleto -->
-                <v-list-tile-title> Teste bla bla bla </v-list-tile-title>
-                <v-list-tile-sub-title>{{ (this.usuarioGetter ? this.usuarioGetter.data.auth.usu_identificacao : '11111111111' ) | cpf }}</v-list-tile-sub-title>
+                <v-list-tile-title> {{ (this.usuarioGetter ? this.usuarioGetter.data.auth.usu_nome : '') }} </v-list-tile-title>
+                <v-list-tile-sub-title>{{ (this.usuarioGetter ? this.usuarioGetter.data.auth.usu_identificacao : '' ) | cpf }}</v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
           </v-list>
@@ -151,7 +149,13 @@ export default {
         }),
         usuario() {
             return (typeof this.usuarioGetter !== 'undefined' && Object.keys(this.usuarioGetter).length > 0) ? this.usuarioGetter : {}
-        }
+        },
+        primeiraLetraNomeUsuario() {
+            return this.usuarioGetter.data.auth.usu_nome.substr(0, 1);
+        },
+        nomeUsuario() {
+            return this.usuarioGetter.data.auth.usu_nome.split(' ')[0];
+        },
     },
     methods:{
         ...mapActions({
