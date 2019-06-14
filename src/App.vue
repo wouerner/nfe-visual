@@ -62,7 +62,7 @@
           </v-list>
           <v-divider/><v-divider/>
           <v-list>
-            <v-list-tile :href="'certificado'">
+            <v-list-tile :to="'/nfe/admin/certificado'" >
               <v-list-tile-action>
                 <v-icon color="indigo">note_add</v-icon>
               </v-list-tile-action>
@@ -72,7 +72,7 @@
               </v-list-tile-content>
             </v-list-tile>
 
-            <v-list-tile :href="'listar-certificados'">
+            <v-list-tile  :to="'/nfe/admin/listar-certificados'">
               <v-list-tile-action>
                 <v-icon color="indigo">list</v-icon>
               </v-list-tile-action>

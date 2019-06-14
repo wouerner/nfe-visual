@@ -5,12 +5,12 @@ Vue.use(Router)
 
 const routes =  [
        {
-           path: '/nfe/certificado',
+           path: '/nfe/admin/certificado',
            name: 'certificado',
            component: () => import(/* webpackChunkName: "Certificado" */ './nfe/views/Certificado.vue')
        },
     {
-        path: '/nfe/listar-certificados',
+        path: '/nfe/admin/listar-certificados',
         name: 'ListarCertificados',
         component: () => import(/* webpackChunkName: "ListarCertificados" */ './nfe/views/ListarCertificados.vue')
     },
