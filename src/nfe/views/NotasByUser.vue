@@ -76,7 +76,7 @@ export default {
             headers: [
                 {
                   text: 'Chave de Acesso',
-                  value: 'id',
+                  value: 'chNFe',
                 },
                 {
                   text: 'Emitente',
