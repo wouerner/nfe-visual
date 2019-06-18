@@ -39,68 +39,68 @@
 </template>
 
 <script>
-    import { mapActions, mapGetters } from 'vuex';
-    import carregando from '@/components/carregando';
+import { mapActions, mapGetters } from 'vuex';
+import carregando from '@/components/carregando';
 
-    export default {
-        name: 'ListarCertificados',
-        components : {
-            carregando
+export default {
+  name: 'ListarCertificados',
+  components: {
+    carregando,
+  },
+  data() {
+    return {
+      loading: true,
+      pagination: { rowsPerPage: 10 },
+      headers: [
+        {
+          text: 'Razão Social',
+          align: 'left',
+          value: 'razaosocial',
         },
-        data(){
-            return {
-                loading: true,
-                pagination:{rowsPerPage: 10},
-                headers: [
-                    {
-                        text: 'Razão Social',
-                        align: 'left',
-                        value: 'razaosocial',
-                    },
-                    {
-                        text: 'CNPJ',
-                        align: 'left',
-                        value: 'cnpj',
-                    },
-                    {
-                        text: 'Ambiente',
-                        align: 'center',
-                        value: 'tpAmb',
-                    },
-                    {
-                        text: 'Certificado',
-                        align: 'left',
-                        value: 'path',
-                    },
-                ],
-                data: []
-            }
+        {
+          text: 'CNPJ',
+          align: 'left',
+          value: 'cnpj',
         },
-        filters: {
-            cpf: function (value) {
-                return value.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-            },
-            cnpj: function (value) {
-                return value.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
-            }
+        {
+          text: 'Ambiente',
+          align: 'center',
+          value: 'tpAmb',
         },
-        watch: {
-            listarCertificadoGetter() {
-                this.loading = false;
-            },
+        {
+          text: 'Certificado',
+          align: 'left',
+          value: 'path',
         },
-        created(){
-            this.listarCertificadoAction();
-        },
-        computed: {
-            ...mapGetters({
-                listarCertificadoGetter: 'certificado/listarCertificadoGetter'
-            })
-        },
-        methods: {
-            ...mapActions({
-                listarCertificadoAction: 'certificado/listarCertificadoAction',
-            })
-        }
-    }
+      ],
+      data: [],
+    };
+  },
+  filters: {
+    cpf(value) {
+      return value.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+    },
+    cnpj(value) {
+      return value.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
+    },
+  },
+  watch: {
+    listarCertificadoGetter() {
+      this.loading = false;
+    },
+  },
+  created() {
+    this.listarCertificadoAction();
+  },
+  computed: {
+    ...mapGetters({
+      listarCertificadoGetter: 'certificado/listarCertificadoGetter',
+    }),
+  },
+  methods: {
+    ...mapActions({
+      listarCertificadoAction: 'certificado/listarCertificadoAction',
+    }),
+  },
+};
 </script>
